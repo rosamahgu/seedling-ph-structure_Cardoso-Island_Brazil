@@ -1,0 +1,11 @@
+# seedling-ph-structure_Cardoso-Island_Brazil
+'habab.txt' == community matrix at the habitat scale
+'triab.txt' == community matrix at the neighbourhood scale (a neighbourhood unit consists of three seedling plots)
+'pp_coletor.txt' == correspondence between neighbourhood unit code and the PEIC permanent plot 
+'sp-id-update.txt' == species identification  updated with the Flora do Brasil 2020 database in the REFLORA Programme (http://floradobrasil.jbrj.gov.br, accessed in September 2021)
+'sdlg.pool.jpeg' == Restinga forest mosaic seedling species pool
+'ph_sdlg.txt' == pairwise phylogenetic distance matrix of the mosaic seedling species pool (n = 75 species)
+'ph_ftr.txt' == pairwise phylogenetic distance matrix of the flooded tall restinga species pool (n = 54 species)
+'ph_dtr.txt' == pairwise phylogenetic distance matrix of the drained tall restinga species pool (n = 56 species)
+'ph_sr.txt' == pairwise phylogenetic distance matrix of the short restinga species pool (n = 50 species)
+'script-ph-structure.txt' == R workflow to determine the phylogenetic structure at the habitat and neighbourhood scales

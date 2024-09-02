@@ -1,0 +1,143 @@
+load('RESULTS_sespicante.RData')
+library(picante)
+library (tidyverse)
+
+
+# the objects saved here are as follows:
+  ## habitat matrix -> habab
+  ## neighbourhood matrix -> triab
+  ## regional pool of the seedlings -> phd (with all 75 seedling species)
+  ## DTR local pool -> phdtr
+  ## FTR local pool -> phftr
+  ## SR local pool -> phsr
+
+  ## the objects sesmpdo and sesmpda are the SES results at local scale
+  ## the objects sesmpd.to and sesmpd.ta are the SES results at neighbourhood scale
+
+### to perform the analysis, we have to rerun sesmpd function,
+### this time, using the local pools (phdtr, phftr, phsr) as the input phylogenetic distance matrix
+### rows 1:30 are DTR neighbourhoods
+### rows 31:60 are FTR neighbourhoods
+### rows 61:90 are SR neighbourhoods
+
+# new_ses using occurrence data (default ---> abundance.weighted = F)
+ses_dtr <- ses.mpd(triab[1:30,], phdtr, null.model = 'taxa.labels', runs = 9999)
+ses_ftr <- ses.mpd(triab[31:60,], phftr, null.model = 'taxa.labels', runs = 9999)
+ses_sr <- ses.mpd(triab[61:90,], phsr, null.model = 'taxa.labels', runs = 9999)
+
+
+#extract row names of the phylogenetic matrix for each habitat
+sppdtr<-as.list(row.names(phdtr))
+length(sppdtr)
+
+sppftr<-as.list(row.names(phftr))
+length(sppftr)
+
+sppsr<-as.list(row.names(phsr))
+length(sppsr)
+
+#create a vector with the number of species in each plot (triad) for each habitat
+sample_size_dtr<-ses_dtr$ntaxa
+sample_size_ftr<-ses_ftr$ntaxa
+sample_size_sr<-ses_sr$ntaxa
+
+
+###############################################
+###############################################
+## this function parameters are: the n number of species, the pairwise phylogenetic distances matrix and the mean and standard deviation of the simulated mean phylogenetic distances (outputs from the ses.mpd function in the picante package). 
+# in this function, we sample n species e calculate the matrix mean
+media.mat <- function(n, matriz, mpd.rand.mean, mpd.rand.sd, standardize = FALSE){
+  if(nrow(matriz)!= ncol(matriz)) stop("'matriz' is not square")
+  indices = sample(x = 1:nrow(matriz), size = n)
+  samp.mat = matriz[indices,indices]
+  y = mean(samp.mat[lower.tri(samp.mat)])
+  if(standardize)
+    y = (y-mpd.rand.mean)/mpd.rand.sd
+  return(y)
+}
+
+
+## this function fixes n species (number of species in a neighbourhood unit) and determines the distribution of ses_MPD values expected for such a neighbourhood unit
+## then, it summarizes the distribution of simulated neighbourhood units by the 25% quantile pseudo-value
+sim.quant.mat = function(n, matriz, nrep =1000, mpd.rand.mean, mpd.rand.sd, standardize = FALSE){
+  x = rep(n, nrep)
+  if(standardize){
+    medias = rep(mpd.rand.mean, nrep)
+    dpad = rep(mpd.rand.sd, nrep)
+    df1 = data.frame(
+      rep = rep(1:nrep, each = length(n)),
+      n.spp =  x ,
+      ph.dist = mapply(x, mpd.rand.mean = medias, mpd.rand.sd = dpad,
+                       FUN = media.mat, MoreArgs = list(matriz = matriz, standardize = TRUE)))
+  }
+  else
+    df1 = data.frame(
+      rep = rep(1:nrep, each = length(n)),
+      n.spp =  x ,
+      ph.dist = sapply(x, media.mat, matriz)
+    )
+  df2 = 
+    df1 %>%
+    group_by(rep) %>%
+    summarise(mean = mean(ph.dist),
+              med = median(ph.dist),
+              sd = sd(ph.dist),
+              q25 = quantile(ph.dist,0.025))
+  list(sim = df1, summary = df2)
+}
+
+
+########################################
+####### testing the distribution of ses_mpd in the neighbourhoods (argument standardize=TRUE) 
+
+#### DTR
+### null model for the quantiles of the ses_MPD values in samples of the 30 neighbourhood units
+dtr.ses.H0 = sim.quant.mat(n = ses_dtr$ntaxa, 
+                         mpd.rand.mean = ses_dtr$mpd.rand.mean, 
+                         mpd.rand.sd =ses_dtr$mpd.rand.sd,
+                         matriz = phdtr, nrep=1e4, 
+                         standardize = TRUE)
+
+
+## significance test: 
+	#the observed 25% quantile
+	quantile(ses_dtr$mpd.obs.z, 0.25)
+
+	## proportion of simulations of the 30 neighbourhood units with ses_MPD value less than or equal to the observed 25% quantile of the real distribution
+	sum(dtr.ses.H0$summary$q25 >= quantile(ses_dtr$mpd.obs.z, 0.25))
+
+	## proportion of simulations of the 30 neighbourhood units with ses_MPD value less than or equal to the observed mean of the real distribution
+
+	## Proporcao das simulacoes de 30 parcelas em que a media foi menor ou igual
+	sum(dtr.ses.H0$summary$mean >= mean(ses_dtr$mpd.obs.z))
+
+
+#### FTR
+### null model for the quantiles of the ses_MPD values in samples of the 30 neighbourhood units
+ftr.ses.H0 = sim.quant.mat(n = ses_ftr$ntaxa, 
+                           mpd.rand.mean = ses_ftr$mpd.rand.mean, 
+                           mpd.rand.sd =ses_ftr$mpd.rand.sd,
+                           matriz = phftr, nrep=1e4, 
+                           standardize = TRUE)
+
+
+## significance test: 
+	quantile(ses_ftr$mpd.obs.z, 0.25)
+	sum(ftr.ses.H0$summary$q25 >= quantile(ses_ftr$mpd.obs.z, 0.25))
+	sum(ftr.ses.H0$summary$mean >= mean(ses_ftr$mpd.obs.z))
+
+
+
+#### SR
+### null model for the quantiles of the ses_MPD values in samples of the 30 neighbourhood units
+sr.ses.H0 = sim.quant.mat(n = ses_sr$ntaxa, 
+                           mpd.rand.mean = ses_sr$mpd.rand.mean, 
+                           mpd.rand.sd =ses_sr$mpd.rand.sd,
+                           matriz = phsr, nrep=1e4, 
+                           standardize = TRUE)
+
+
+## significance test: 
+	quantile(ses_sr$mpd.obs.z, 0.25)
+	sum(sr.ses.H0$summary$q25 >= quantile(ses_sr$mpd.obs.z, 0.25))
+	sum(sr.ses.H0$summary$mean >= mean(ses_sr$mpd.obs.z))

@@ -1,0 +1,31 @@
+library(picante)
+
+########## community data
+habab <- as.matrix(read.table("habab.txt", sep = ";"))
+
+########## neighbourhood data
+triab <- as.matrix(read.table("triab.txt", sep = ";"))
+	## DTR = 1:30; FTR = 31:60; SR = 61:90)
+
+########## pairwise phylogenetic distances matrices
+phd <- as.matrix(read.table("ph_sdlg.txt", sep = ";"))
+phftr <- as.matrix(read.table("ph_ftr.txt", sep = ";"))
+phdtr <- as.matrix(read.table("ph_dtr.txt", sep = ";"))
+phsr <- as.matrix(read.table("ph_sr.txt", sep = ";"))
+
+############################################################
+########## among habitats
+############################################################
+########## local scale --> occurrence pattern 
+sesmpdo <- ses.mpd(habab, phd, null.model = "taxa.labels", runs = 9999)
+
+########## local scale --> abundance pattern 
+sesmpda <- ses.mpd(habab, phd, null.model = "taxa.labels", abundance.weighted = T, runs = 9999)
+	## complete.abundance-weighted MPD
+
+########## neighbourhood scale --> occurrence pattern 
+sesmpd.to <- ses.mpd(triab, phd, null.model = "taxa.labels", runs = 9999)
+
+########## neighbourhood scale --> a pattern 
+sesmpd.ta <- ses.mpd(triab, phd, abundance.weighted = T, null.model = "taxa.labels", runs = 9999)
+

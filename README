@@ -9,3 +9,4 @@
 'ph_dtr.txt' == pairwise phylogenetic distance matrix of the drained tall restinga species pool (n = 56 species)
 'ph_sr.txt' == pairwise phylogenetic distance matrix of the short restinga species pool (n = 50 species)
 'script-ph-structure.txt' == R workflow to determine the phylogenetic structure at the habitat and neighbourhood scales
+'script-within-habitats.txt' == R workflow to determine whether the lower quantile of the distribution of phylogenetic structure at the neighbourhood scale is truncated

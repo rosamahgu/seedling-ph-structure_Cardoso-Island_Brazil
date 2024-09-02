@@ -29,3 +29,4 @@ sesmpd.to <- ses.mpd(triab, phd, null.model = "taxa.labels", runs = 9999)
 ########## neighbourhood scale --> a pattern 
 sesmpd.ta <- ses.mpd(triab, phd, abundance.weighted = T, null.model = "taxa.labels", runs = 9999)
 
+save.image("RESULTS_sespicante.RData")

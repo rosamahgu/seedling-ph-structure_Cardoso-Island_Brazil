@@ -1,0 +1,109 @@
+ok Lauraceae	Aiouea saligna
+ok Euphorbiaceae	Alchornea triplinervia
+!! Rubiaceae	Alibertia myrciifolia --> Cordiera myrciifolia
+ok Rubiaceae	Amaioua intermedia
+ok Fabaceae	Andira anthelmia
+ok Lauraceae	Aniba viridis
+ok Euphorbiaceae	Aparisthmium cordatum
+ok Arecaceae	Astrocaryum aculeatissimum
+ok Arecaceae	Bactris setosa
+ok Arecaceae	Bactris vulgaris
+!! Mimosaceae	Balizia pedicellaris --> Fabaceae_Albizia_pedicellaris
+ok Myrtaceae	Blepharocalyx salicifolius
+ok Malpighiaceae	Byrsonima ligustrifolia
+ok Meliaceae	Cabralea canjerana
+!! Clusiaceae	Calophyllum brasiliense --> Calophyllaceae
+!! Myrtaceae	Calyptranthes concinna --> Myrcia glomerata
+ok Oleaceae	Chionanthus filiformis
+ok Clethraceae	Clethra scabra
+ok Clusiaceae	Clusia criuva
+!! Urticaceae	Coussapoa macrocarpa --> Coussapoa microcarpa
+ok Euphorbiaceae	Croton sphaerogynus
+ok Thymelaeaceae	Daphnopsis racemosa
+ok Lauraceae	Endlicheria paniculata
+!! Erythroxylaceae	Erythroxylum amplifolium --> Erythroxylum umbu
+!! Myrtaceae	Eugenia neoglomerata --> Eugenia subglomerata
+ok Myrtaceae	Eugenia stigmatosa
+ok Myrtaceae	Eugenia sulcata
+!!Myrtaceae	Eugenia umbeliflora --> Eugenia astringens
+?? Euphorbiaceae	Euphorbiaceae sp1
+ok Arecaceae	Euterpe edulis
+ok Clusiaceae	Garcinia gardneriana
+ok Arecaceae	Geonoma schottiana
+!! Myrtaceae	Gomidesia affinis --> Myrcia hebepetala
+!! Myrtaceae	Gomidesia fenzliana --> Myrcia ilheosensis
+!! Myrtaceae	Gomidesia schaueriana --> Myrcia brasiliensis
+!! Myrtaceae	Gomidesia sp --> Myrcia sp
+ok Nyctaginaceae	Guapira opposita
+ok Meliaceae	Guarea macrophylla
+ok Annonaceae	Guatteria australis
+!! Olacaceae	Heisteria silvianii -->  Erythropalaceae
+ok Chrysobalanaceae	Hirtella hebeclada
+ok Humiriaceae	Humiriastrum dentatum
+!! Aquifoliaceae	Ilex amara --> Ilex dumosa
+ok Aquifoliaceae	Ilex pseudobuxus
+ok Aquifoliaceae	Ilex theezans
+ok Bignoniaceae	Jacaranda puberula
+ok Sapotaceae	Manilkara subsericea
+ok Euphorbiaceae	Maprounea guianensis
+!! Myrtaceae	Marliera racemosa --> Myrcia vellozoi
+ok Sapindaceae	Matayba guianensis
+!! Celastraceae	Maytenus robusta --> Monteverdia gonoclada
+!! Melastomataceae	Miconia chartacea --> Miconia flammea
+ok Melastomataceae	Miconia cinnamomifolia
+ok Melastomataceae	Miconia cubatanensis
+!! Melastomataceae	Miconia saldanhaei --> Miconia fasciculata
+?? Melastomataceae	Miconia sp
+!! Melastomataceae	Miconia trichopoda --> Pleroma trichopodum
+ok Monimiaceae	Mollinedia schottiana
+?? Indet 7	Morfo 08 
+ok Myrtaceae	Myrceugenia myrcioides
+ok Myrtaceae	Myrcia bicarinata
+!! Myrtaceae	myrcia bicarinata --> Myrcia bicarinata
+ok Myrtaceae	Myrcia glabra
+!! Myrtaceae	Myrcia grandiflora --> Myrcia pubipetala
+!! Myrtaceae	myrcia grandiflora --> Myrcia pubipetala
+ok Myrtaceae	Myrcia macrocarpa
+ok Myrtaceae	Myrcia multiflora
+ok Myrtaceae	Myrcia racemosa
+!! Myrtaceae	Myrcia rostrata --> Myrcia splendens
+?? Myrtaceae	Myrtaceae sp1
+NA	NA
+ok Lauraceae	Nectandra grandiflora
+ok Lauraceae	Nectandra membranacea
+ok Myrtaceae	Neomitranthes glomerata
+!! Lauraceae	Ocotea acyphylla --> Ocotea aciphylla
+ok Lauraceae	Ocotea dispersa
+ok Lauraceae	Ocotea pulchella
+ok Lauraceae	Ocotea pulchra
+?? Lauraceae	Ocotea sp
+ok Lauraceae	Ocotea venulosa
+!! Lauraceae	Ocotea viridis --> Aniba viridis
+ok Ochnaceae	Ouratea parviflora
+!! Euphorbiaceae	Pera glabrata --> Peraceae
+!! Myrtaceae	Pimenta pseudocareophyllum -->  Pimenta pseudocaryophyllus
+?? Piperaceae	Piper sp
+ok Podocarpaceae	Podocarpus sellowii
+ok Rubiaceae	Posoqueria latifolia
+ok Sapotaceae	Pouteria beaurepairei
+ok Rosaceae	Prunus myrtifolia
+ok Myrtaceae	Psidium cattleyanum
+ok Rubiaceae	Psychotria sp
+!! Myrsinaceae	Rapanea ferruginea --> Primulaceae Myrsine coriacea
+!! Myrsinaceae	Rapanea guianensis --> Primulaceae Myrsine guianensis
+!! Myrsinaceae	Rapanea umbellata --> Primulaceae Myrsine umbellata
+!! Myrsinaceae	Rapanea venosa --> Primulaceae Myrsine venosa
+!! Rubiaceae	Rudgea viliflora --> Rudgea coriacea
+!! Araliaceae	Schefflera angustissima --> Didymopanax angustissimus
+ok Myrtaceae	Siphoneugena guilfoyleiana
+ok Elaeocarpaceae	Sloanea guianensis
+!! Solanaceae	Solanum cinamomum -->  Solanum cinnamomeum
+ok Arecaceae	Syagrus romanzoffiana
+ok Myrtaceae	Syzygium cumini
+!! Bignoniaceae	Tabebuia alba --> Handroanthus albus
+ok Anacardiaceae	Tapirira guianensis
+!! Theaceae	Ternstroemia brasiliensis --> Pentaphylacaceae
+!! Melastomataceae	Tibouchina tricopoda --> Pleroma trichopodum
+ok Annonaceae	Xylopia brasiliensis
+ok Annonaceae	Xylopia langsdorffiana
+
